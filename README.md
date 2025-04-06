@@ -1,54 +1,42 @@
-# React + TypeScript + Vite
+# 🎨 ColorSnatch
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ColorSnatch es una extensión de Chrome minimalista y potente que te permite capturar cualquier color de una página web con un solo clic. Perfecta para diseñadores, desarrolladores y entusiastas del diseño web.
 
-Currently, two official plugins are available:
+## 🚀 Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🖱️ Selector de color en tiempo real
+- 📋 Copia automática en formato HEX, RGB o HSL
+- 🕵️‍♀️ Historial de colores seleccionados
+- 🎯 Precisión de píxel con lupa integrada
+- 🌈 Paleta rápida de colores favoritos
+- 💾 Exportación de paleta en JSON o CSS variables
 
-## Expanding the ESLint configuration
+## 📦 Instalación
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Clona este repositorio o descarga el ZIP.
+2. Ve a `chrome://extensions/` en tu navegador.
+3. Activa el **Modo de desarrollador**.
+4. Haz clic en **"Cargar descomprimida"** y selecciona la carpeta del proyecto.
+5. ¡Listo! El ícono de ColorSnatch aparecerá en tu barra de herramientas.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## 🛠️ Uso
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. Haz clic en el ícono de ColorSnatch.
+2. Selecciona el modo de captura (lupa o selección rápida).
+3. Haz clic sobre cualquier elemento de la página para copiar el color al portapapeles.
+4. Visualiza el color en el historial o guárdalo en tu paleta.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## ✅ Permisos
+
+La extensión requiere acceso a:
+
+- `activeTab`: Para inspeccionar y capturar el color de la página actual
+- `storage`: Para guardar historial y paletas favoritas
+
+## 📄 Licencia
+
+MIT © [Fainner Ramirez](https://github.com/fainnerramirez)
+
+---
+
