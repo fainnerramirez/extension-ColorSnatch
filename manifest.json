@@ -1,0 +1,44 @@
+{
+    "manifest_version": 3,
+    "name": "Color Snatch",
+    "version": "1.0.0",
+    "description": "Captura colores desde cualquier sitio web y copialos en culquier formato que lo necesites",
+    "icons": {
+        "32": "images/icon-32.png",
+        "48": "images/icon-48.png",
+        "128": "images/icon-128.png"
+    },
+    "background": {
+        "service_worker": "service-worker.js"
+    },
+    "action": {
+        "default_icon": {
+            "16": "images/icon16-png",
+            "32": "images/icon32.png",
+            "48": "images/icon48.png",
+            "128": "images/icon128.png"
+        },
+        "default_title": "Color Snatch",
+        "default_popup": "popup.html"
+    },
+    "author": {
+        "email": "fainnerramirez@gmail.com"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content-scripts.js"
+            ]
+        }
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ]
+}

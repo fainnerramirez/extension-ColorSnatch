@@ -1,0 +1,31 @@
+Autoría y Licencia de Proyecto
+=============================
+
+Autor:
+-------
+Este proyecto fue desarrollado por [Fainner Ramirez De La Hoz]. (Github: https://github.com/fainnerramirez)
+
+Descripción del Proyecto:
+-------------------------
+Esta es una extensión de Chrome para capturar los colores de cualquier página web y en diferentes formatos.
+
+Licencia:
+---------
+Este proyecto está bajo la Licencia MIT. Puedes usar, copiar, modificar y distribuir el código fuente de este proyecto, siempre y cuando mantengas el aviso de copyright y la renuncia de responsabilidad en todas las copias o partes sustanciales del software.
+
+El software se proporciona "tal cual", sin ninguna garantía expresa o implícita, incluyendo pero no limitándose a las garantías de comerciabilidad, adecuación para un propósito particular y no infracción. En ningún caso el autor o los titulares del copyright serán responsables por cualquier daño directo, indirecto, incidental, especial o consecuente, o por cualquier pérdida de beneficios, datos o uso, ya sea en una acción de contrato, agravio o de otro tipo, que surja de alguna manera del uso o la imposibilidad de usar este software.
+
+Permisos:
+---------
+- Uso personal y comercial: Puedes usar este software en proyectos personales y comerciales sin restricciones.
+- Modificación: Puedes modificar el código de este proyecto para ajustarlo a tus necesidades.
+- Distribución: Puedes distribuir copias del software modificado bajo los mismos términos de la Licencia MIT.
+
+Exclusiones:
+-------------
+- Este proyecto no se hace responsable del mal uso o del uso indebido del software en entornos productivos o en situaciones que puedan afectar sistemas en vivo o de misión crítica.
+
+Agradecimientos:
+----------------
+Gracias por usar y contribuir a este proyecto. Si tienes alguna sugerencia o mejora, por favor, no dudes en abrir un "issue" o un "pull request".
+

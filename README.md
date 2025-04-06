@@ -25,18 +25,3 @@ ColorSnatch es una extensión de Chrome minimalista y potente que te permite cap
 2. Selecciona el modo de captura (lupa o selección rápida).
 3. Haz clic sobre cualquier elemento de la página para copiar el color al portapapeles.
 4. Visualiza el color en el historial o guárdalo en tu paleta.
-
-
-## ✅ Permisos
-
-La extensión requiere acceso a:
-
-- `activeTab`: Para inspeccionar y capturar el color de la página actual
-- `storage`: Para guardar historial y paletas favoritas
-
-## 📄 Licencia
-
-MIT © [Fainner Ramirez](https://github.com/fainnerramirez)
-
----
-
