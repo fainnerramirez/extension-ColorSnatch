@@ -1,28 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const dateElement = document.querySelector("#date");
-    if (dateElement) dateElement.textContent = new Date().getFullYear();
-    const buttonPassenger = document.querySelector("#avianca__action__passenger");
-    let timeOutButton;
-    if (buttonPassenger) {
-        buttonPassenger.addEventListener("click", function () {
+    const inputCheck = document.querySelector("#popup__check__colorsnatch");
+
+    if (!inputCheck) {
+        throw new Error("input de checkbox no encontrado: ", inputCheck);
+    }
+
+    const itemStorage = localStorage.getItem("color-snatch-status") || null;
+    console.log("Check localstorage: ", itemStorage);
+    inputCheck.checked = itemStorage ? itemStorage : "false";
+
+    inputCheck.addEventListener("click", (event) => {
+        const { target } = event;
+        const isChecked = target.checked;
+        localStorage.setItem("color-snatch-status", isChecked.toString());
+
+        if (isChecked) {
             chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
                 const tabId = tabs[0].id;
-                chrome.tabs.sendMessage(tabId, { action: 'setDefaultFormValues' });
-                console.log("Message Send");
-                buttonPassenger.textContent = "Generando valores...";
-                timeOutButton = setTimeout(() => {
-                    const elementI = document.createElement("i");
-                    elementI.classList.add("fa-solid", "fa-user-plus");
-                    const elementText = document.createElement("p");
-                    elementText.textContent = "Completar valores del formulario";
-                    buttonPassenger.textContent = "";
-                    buttonPassenger.appendChild(elementI);
-                    buttonPassenger.appendChild(elementText);
-                }, 2000);
+                chrome.tabs.sendMessage(tabId, { action: 'setListenerColorSnatch' });
             });
-        });
-    } else {
-        console.error("No se ha encontrado el botón de PASAJEROS en el side panel.");
-    }
-    clearTimeout(timeOutButton);
+        }
+        else {
+            chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+                const tabId = tabs[0].id;
+                chrome.tabs.sendMessage(tabId, { action: 'deleteListenerColorSnatch' });
+                localStorage.removeItem("color-snatch-status");
+            });
+        }
+    });
+
 });
