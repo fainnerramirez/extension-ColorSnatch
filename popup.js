@@ -1,3 +1,13 @@
+
+const handleEventClickDocument = () => {
+    document.addEventListener("click", (e) => {
+        const {target} = e;
+        chrome.storage.local.set({
+            valueColor: target.styles
+        })    
+    });   
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const inputCheck = document.querySelector("#popup__check__colorsnatch");
 
