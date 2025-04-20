@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color Snatch</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="./index.css">
 </head>
 
@@ -18,11 +17,19 @@
             <i class="bi bi-airplane-engines"></i>
         </div>
         <div class="popup__body">
-            <div class="form-check form-switch">
-                <input class="form-check-input popup__check__colorsnatch" type="checkbox" role="switch" id="popup__check__colorsnatch">
-                <label class="form-check-label" for="popup__check__colorsnatch">Habilitar</label>
-              </div>
-            <div class="popup__description">
+            <fieldset class="fieldset bg-base-100 border-base-300 rounded-box w-64 border p-4">
+                <legend class="fieldset-legend">Opciones</legend>
+                <label class="label">
+                    <input type="checkbox" checked="checked" class="checkbox checkbox-info popup__check__colorsnatch"
+                        id="popup__check__colorsnatch" />
+                    Habilitar
+                </label>
+            </fieldset>
+            <div role="tablist" class="tabs tabs-box">
+                <button role="tab" id="rgb" class="tab tab-active">RGB</button>
+                <button role="tab" id="hex" class="tab">HEX</button>
+            </div>
+            <div id="color-display" class="popup__description">
                 <p>Habilita el Color Snatch para empezar a capturar</p>
             </div>
             <div class="popup__details__colors">
@@ -60,16 +67,15 @@
             </div>
             <div class="popup__footer">
                 <p class="text-muted">Por </p>
-                <p><a href="https://github.com/fainnerramirez" target="_blank" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
-                    Fainner Ramirez
-                </a></p>
+                <p><a href="https://github.com/fainnerramirez" target="_blank"
+                        class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+                        Fainner Ramirez
+                    </a></p>
             </div>
         </div>
     </div>
     <script src="./popup.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </body>
 
 </html>

@@ -78,10 +78,6 @@ body {
     align-items: center;
 }
 
-.popup__check__colorsnatch:checked {
-    background-color: #18181B;
-}
-
 .popup__bg {
     padding: 15px;
     border-radius: 5px;
@@ -120,4 +116,10 @@ body {
 
 .popup__footer>* {
     margin-top: 10px;
+}
+
+.tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
