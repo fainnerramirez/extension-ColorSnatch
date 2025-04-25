@@ -72,6 +72,15 @@ document.addEventListener("DOMContentLoaded", function () {
         return null;
     }
 
+    const getBackgroundColor = (color) => {
+        if (color) {
+            if (color.toString() === 'rgb(255, 255, 255)') {
+                color = "#000000";
+            }
+        }
+        return color;
+    }
+
     const buttonRGB = document.querySelector("#rgb");
     const buttonHex = document.querySelector("#hex");
 
@@ -80,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
         buttonHex.classList.add("tab-active");
         chrome.storage.local.get(["capturedColor"], function (result) {
             if (result.capturedColor) {
-                colorDisplay.style.backgroundColor = result.capturedColor;
+                colorDisplay.style.backgroundColor = getBackgroundColor(result.capturedColor);
                 colorDisplay.textContent = rgbToHex(result.capturedColor);
                 colorDisplay.style.color = "#FFFFFF";
             }

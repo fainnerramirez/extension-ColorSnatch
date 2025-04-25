@@ -4,18 +4,18 @@ function getComputedColor(element) {
 }
 
 function handleClick(e) {
-    e.preventDefault(); 
+    e.preventDefault();
     e.stopPropagation();
-    
+
     const targetElement = e.target;
     const color = getComputedColor(targetElement);
     console.log("Color capturado:", color);
-    
+
     console.log("Guardando color en storage:", color);
-    
-    chrome.storage.local.set({ capturedColor: color }, function() {
+
+    chrome.storage.local.set({ capturedColor: color }, function () {
         console.log("Color guardado correctamente en storage");
-    });    
+    });
 }
 
 const createTooltipColorSnatch = () => {
@@ -45,25 +45,34 @@ const assigmentEventTooltip = () => {
     });
 }
 
+const getBackgroundColor = (color) => {
+    if (color) {
+        if (color.toString() === 'rgb(255, 255, 255)') {
+            color = "#000000";
+        }
+    }
+    return color;
+}
+
 const handleColorSnatch = (event) => {
     const { target } = event;
     let { color } = window.getComputedStyle(target);
     const tooltip = document.getElementById('colorsnatch__tooltip');
     tooltip.textContent = color;
     tooltip.style.color = "#FFFFFF";
-    tooltip.style.backgroundColor = color;
+    tooltip.style.backgroundColor = getBackgroundColor(color);
 }
 
 const setListenerColorSnatch = () => {
     console.log("Eventos agregados");
     deleteListenerColorSnatch();
-    
+
     document.body.appendChild(createTooltipColorSnatch());
     assigmentEventTooltip();
     document.addEventListener("mouseover", handleColorSnatch);
-    
+
     console.log("Registrando evento de clic...");
-    document.addEventListener("click", handleClick, true); 
+    document.addEventListener("click", handleClick, true);
     chrome.storage.local.set({ colorSnatchEnabled: true });
 }
 
@@ -76,7 +85,7 @@ const deleteListenerColorSnatch = () => {
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     console.log("Mensaje recibido en content script:", message);
-    
+
     if (message.action === 'setListenerColorSnatch') {
         console.log("Activando Color Snatch");
         setListenerColorSnatch();
@@ -87,12 +96,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         deleteListenerColorSnatch();
         sendResponse({ status: "Color Snatch desactivado" });
     }
-    
+
     return true;
 });
 
 console.log("Content script cargado, verificando estado inicial...");
-chrome.storage.local.get(["colorSnatchEnabled"], function(result) {
+chrome.storage.local.get(["colorSnatchEnabled"], function (result) {
     console.log("Estado inicial:", result.colorSnatchEnabled);
     if (result.colorSnatchEnabled) {
         console.log("Color Snatch debería estar activado, inicializando...");
